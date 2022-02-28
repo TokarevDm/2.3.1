@@ -16,7 +16,6 @@ public class UserDaoImp implements UserDao {
     private EntityManager entityManager;
 
     @Override
-    @Transactional
     public void updateUserById(long id, User user) {
         User updUser = getUserById(id);
         updUser.setName(user.getName());
@@ -26,7 +25,6 @@ public class UserDaoImp implements UserDao {
     }
 
     @Override
-    @Transactional
     public void saveUser(User user) {
         entityManager.persist(user);
         System.out.println("User с именем – " + user.getName() + " добавлен в базу данных");
@@ -38,7 +36,6 @@ public class UserDaoImp implements UserDao {
     }
 
     @Override
-    @Transactional
     public void removeUserById(long id) {
         User removedUser = getUserById(id);
         entityManager.remove(removedUser);
